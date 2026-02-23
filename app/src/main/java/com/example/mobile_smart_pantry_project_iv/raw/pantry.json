@@ -1,0 +1,74 @@
+{
+  "produkty": [
+    {
+      "id": 1,
+      "nazwa": "Ryż",
+      "ilosc": 2,
+      "jednostka": "kg",
+      "kategoria": "Produkty sypkie"
+    },
+    {
+      "id": 2,
+      "nazwa": "Makaron",
+      "ilosc": 3,
+      "jednostka": "szt",
+      "kategoria": "Produkty sypkie"
+    },
+    {
+      "id": 3,
+      "nazwa": "Mąka pszenna",
+      "ilosc": 1,
+      "jednostka": "kg",
+      "kategoria": "Produkty sypkie"
+    },
+    {
+      "id": 4,
+      "nazwa": "Cukier",
+      "ilosc": 1,
+      "jednostka": "kg",
+      "kategoria": "Produkty sypkie"
+    },
+    {
+      "id": 5,
+      "nazwa": "Sól",
+      "ilosc": 1,
+      "jednostka": "kg",
+      "kategoria": "Przyprawy"
+    },
+    {
+      "id": 6,
+      "nazwa": "Olej rzepakowy",
+      "ilosc": 2,
+      "jednostka": "l",
+      "kategoria": "Oleje"
+    },
+    {
+      "id": 7,
+      "nazwa": "Fasola czerwona",
+      "ilosc": 4,
+      "jednostka": "szt",
+      "kategoria": "Konserwy"
+    },
+    {
+      "id": 8,
+      "nazwa": "Tuńczyk w puszce",
+      "ilosc": 5,
+      "jednostka": "szt",
+      "kategoria": "Konserwy"
+    },
+    {
+      "id": 9,
+      "nazwa": "Płatki owsiane",
+      "ilosc": 1,
+      "jednostka": "kg",
+      "kategoria": "Produkty śniadaniowe"
+    },
+    {
+      "id": 10,
+      "nazwa": "Mleko",
+      "ilosc": 3,
+      "jednostka": "l",
+      "kategoria": "Nabiał"
+    }
+  ]
+}
