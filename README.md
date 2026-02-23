@@ -1,3 +1,9 @@
+##**Załoga: Kornel Janiuk i Jakub Jaworowski**##
+
+
+
+
+
 # 📱 Smart Pantry Project
 
 **Project**: *Red Planet Pantry (Mars Colony)*
