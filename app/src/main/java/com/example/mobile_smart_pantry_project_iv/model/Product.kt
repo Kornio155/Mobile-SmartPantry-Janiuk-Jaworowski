@@ -3,9 +3,9 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class Product(
-    val id: String,
+    val id: Int,
     val nazwa: String,
-    val ilosc: Int,
+    var ilosc: Int,
     val kategoria: String,
     val zdjecie: String
 )
