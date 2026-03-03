@@ -61,7 +61,6 @@ class MainActivity : AppCompatActivity() {
                 val ilosc = obj.getInt("ilosc")
                 val kategoria = obj.getString("kategoria")
 
-                // jeśli w JSON nie ma zdjecia, ustaw pusty string
                 val zdjecie = obj.optString("zdjecie", "")
 
                 val product = Product(

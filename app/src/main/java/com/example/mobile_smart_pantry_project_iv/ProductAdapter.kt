@@ -14,6 +14,8 @@ class ProductAdapter(
     private val products: MutableList<Product>
 ) : BaseAdapter() {
 
+    private var expandedPosition: Int = -1
+
     override fun getCount(): Int = products.size
     override fun getItem(position: Int): Any = products[position]
     override fun getItemId(position: Int): Long = position.toLong()
@@ -26,18 +28,28 @@ class ProductAdapter(
         binding.textProduct.text =
             "${product.nazwa} - ${product.ilosc} (${product.kategoria})"
 
-
         if (product.ilosc < 5) {
             binding.textProduct.setTextColor(Color.RED)
         } else {
             binding.textProduct.setTextColor(Color.BLACK)
         }
 
-        binding.buttonPanel.visibility = View.GONE
+        if (position == expandedPosition) {
+            binding.buttonPanel.visibility = View.VISIBLE
+        } else {
+            binding.buttonPanel.visibility = View.GONE
+        }
 
         binding.textProduct.setOnClickListener {
-            binding.buttonPanel.visibility =
-                if (binding.buttonPanel.visibility == View.VISIBLE) View.GONE else View.VISIBLE
+
+            expandedPosition =
+                if (expandedPosition == position) {
+                    -1
+                } else {
+                    position
+                }
+
+            notifyDataSetChanged()
         }
 
         binding.buttonAdd.setOnClickListener {
@@ -54,6 +66,7 @@ class ProductAdapter(
 
         binding.buttonDelete.setOnClickListener {
             products.removeAt(position)
+            expandedPosition = -1
             notifyDataSetChanged()
         }
 
