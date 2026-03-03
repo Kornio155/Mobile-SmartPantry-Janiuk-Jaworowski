@@ -1,6 +1,8 @@
 package com.example.mobile_smart_pantry_project_iv
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -12,7 +14,6 @@ import org.json.JSONObject
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-
     private lateinit var products: MutableList<Product>
     private lateinit var adapter: ProductAdapter
 
@@ -26,10 +27,29 @@ class MainActivity : AppCompatActivity() {
         products = mutableListOf()
 
         adapter = ProductAdapter(this, products)
-
         binding.listViewItems.adapter = adapter
 
         loadPantry()
+
+        binding.editText.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {}
+
+            override fun beforeTextChanged(
+                s: CharSequence?,
+                start: Int,
+                count: Int,
+                after: Int
+            ) {}
+
+            override fun onTextChanged(
+                s: CharSequence?,
+                start: Int,
+                before: Int,
+                count: Int
+            ) {
+                adapter.filter(s.toString())
+            }
+        })
 
         ViewCompat.setOnApplyWindowInsetsListener(binding.main) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -60,7 +80,6 @@ class MainActivity : AppCompatActivity() {
                 val nazwa = obj.getString("nazwa")
                 val ilosc = obj.getInt("ilosc")
                 val kategoria = obj.getString("kategoria")
-
                 val zdjecie = obj.optString("zdjecie", "")
 
                 val product = Product(
