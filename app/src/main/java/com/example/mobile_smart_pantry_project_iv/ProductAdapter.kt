@@ -29,9 +29,9 @@ class ProductAdapter(
         binding.textProduct.text =
             "${product.nazwa} - ${product.ilosc} (${product.kategoria})"
 
-        if (product.ilosc < 3) {
+        if (product.ilosc <= 3) {
             binding.textProduct.setTextColor(Color.RED)
-        } else if(product.ilosc < 5){
+        } else if(product.ilosc <= 5){
             binding.textProduct.setTextColor(Color.YELLOW)
         } else{
             binding.textProduct.setTextColor(Color.GREEN)
