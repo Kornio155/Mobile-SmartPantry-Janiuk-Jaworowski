@@ -26,9 +26,72 @@
         android:padding="8dp"
         android:background="#ffffff"/>
 
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnFilterAll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Wszystkie"
+                android:layout_marginEnd="8dp"/>
+
+            <Button
+                android:id="@+id/btnFilterDry"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Produkty sypkie"
+                android:layout_marginEnd="8dp"/>
+
+            <Button
+                android:id="@+id/btnFilterSpices"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Przyprawy"
+                android:layout_marginEnd="8dp"/>
+
+            <Button
+                android:id="@+id/btnFilterOils"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Oleje"
+                android:layout_marginEnd="8dp"/>
+
+            <Button
+                android:id="@+id/btnFilterCans"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Konserwy"
+                android:layout_marginEnd="8dp"/>
+
+            <Button
+                android:id="@+id/btnFilterBreakfast"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Produkty śniadaniowe"
+                android:layout_marginEnd="8dp"/>
+
+            <Button
+                android:id="@+id/btnFilterDairy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nabiał"
+                android:layout_marginEnd="8dp"/>
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
     <ListView
         android:id="@+id/listViewItems"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
 
 </LinearLayout>

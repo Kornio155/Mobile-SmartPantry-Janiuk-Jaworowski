@@ -16,6 +16,8 @@ class ProductAdapter(
 
     private var filteredProducts: MutableList<Product> = products.toMutableList()
     private var expandedPosition: Int = -1
+    private var currentFilter: String = ""
+    private var currentCategory: String = "Wszystkie"
 
     override fun getCount(): Int = filteredProducts.size
     override fun getItem(position: Int): Any = filteredProducts[position]
@@ -63,24 +65,34 @@ class ProductAdapter(
 
         binding.buttonDelete.setOnClickListener {
             products.remove(product)
-            filteredProducts.removeAt(position)
-            expandedPosition = -1
-            notifyDataSetChanged()
+            applyFilters()
         }
 
         return binding.root
     }
 
     fun filter(query: String) {
+        currentFilter = query
+        applyFilters()
+    }
 
-        filteredProducts = if (query.trim().isEmpty()) {
-            products.toMutableList()
-        } else {
-            products.filter {
-                it.nazwa.contains(query, ignoreCase = true)
-            }.toMutableList()
+    fun filterByCategory(category: String) {
+        currentCategory = category
+        applyFilters()
+    }
+
+    private fun applyFilters() {
+        var result = products.toList()
+
+        if (currentCategory != "Wszystkie") {
+            result = result.filter { it.kategoria == currentCategory }
         }
 
+        if (currentFilter.isNotEmpty()) {
+            result = result.filter { it.nazwa.contains(currentFilter, ignoreCase = true) }
+        }
+
+        filteredProducts = result.toMutableList()
         expandedPosition = -1
         notifyDataSetChanged()
     }

@@ -31,6 +31,8 @@ class MainActivity : AppCompatActivity() {
 
         loadPantry()
 
+        setupFilters()
+
         binding.editText.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {}
 
@@ -63,6 +65,16 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun setupFilters() {
+        binding.btnFilterAll.setOnClickListener { adapter.filterByCategory("Wszystkie") }
+        binding.btnFilterDry.setOnClickListener { adapter.filterByCategory("Produkty sypkie") }
+        binding.btnFilterSpices.setOnClickListener { adapter.filterByCategory("Przyprawy") }
+        binding.btnFilterOils.setOnClickListener { adapter.filterByCategory("Oleje") }
+        binding.btnFilterCans.setOnClickListener { adapter.filterByCategory("Konserwy") }
+        binding.btnFilterBreakfast.setOnClickListener { adapter.filterByCategory("Produkty śniadaniowe") }
+        binding.btnFilterDairy.setOnClickListener { adapter.filterByCategory("Nabiał") }
+    }
+
     private fun loadPantry() {
         try {
             val inputStream = resources.openRawResource(R.raw.pantry)
@@ -93,7 +105,7 @@ class MainActivity : AppCompatActivity() {
                 products.add(product)
             }
 
-            adapter.notifyDataSetChanged()
+            adapter.filterByCategory("Wszystkie") // Initial filter application
 
         } catch (e: Exception) {
             e.printStackTrace()
